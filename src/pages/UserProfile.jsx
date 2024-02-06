@@ -12,11 +12,9 @@ import Slide from "@mui/material/Slide";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-  });
-  
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function UserProfile() {
   const { currentUser } = useAuth();
@@ -121,11 +119,9 @@ function UserProfile() {
       )}
       <div className="mt-8 flex justify-center gap-3">
         <a href="/profile-update">
-            <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Update Profile
-            </button>
+          </button>
         </a>
         <button
           onClick={handleClickOpenDialog}
@@ -148,8 +144,8 @@ function UserProfile() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseDialog} >Cancel</Button>
-          <Button onClick={handleDeleteAccount} >Delete</Button>
+          <Button onClick={handleCloseDialog}>Cancel</Button>
+          <Button onClick={handleDeleteAccount}>Delete</Button>
         </DialogActions>
       </Dialog>
     </div>
