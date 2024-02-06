@@ -298,7 +298,11 @@ export default function Navbar({ content }) {
                 />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding sx={{ display: "block" }} onClick={handleClickOpenDialog}>
+            <ListItem
+              disablePadding
+              sx={{ display: "block" }}
+              onClick={handleClickOpenDialog}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -313,7 +317,7 @@ export default function Navbar({ content }) {
                     justifyContent: "center",
                   }}
                 >
-                  <MeetingRoomIcon/>
+                  <MeetingRoomIcon />
                 </ListItemIcon>
                 <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>

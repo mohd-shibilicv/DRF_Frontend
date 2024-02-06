@@ -53,20 +53,24 @@ function LoginForm() {
       <CssBaseline />
       <Box
         sx={{
-          marginTop:  8,
+          marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m:  1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt:  1 }}>
-          {error && <p className="mx-auto flex justify-center bg-red-100 text-red-600 px-5 py-3 rounded">{error}</p>}
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          {error && (
+            <p className="mx-auto flex justify-center bg-red-100 text-red-600 px-5 py-3 rounded">
+              {error}
+            </p>
+          )}
           <TextField
             margin="normal"
             required
@@ -95,7 +99,7 @@ function LoginForm() {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt:  3, mb:  2 }}
+            sx={{ mt: 3, mb: 2 }}
           >
             Sign In
           </Button>

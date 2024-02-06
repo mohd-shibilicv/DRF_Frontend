@@ -75,11 +75,18 @@ function RegistrationForm() {
             const day = parseInt(parts[2], 10);
 
             if (year > currentYear) {
-              errorMessage = "Birth Year cannot be grater than the current year";
-            } else if (year === currentYear && month > currentMonth ) {
-                errorMessage = "Birth Month of the current year cannot be grater than the current month";
-            } else if (year === currentYear && month === currentMonth && day > currentDay) {
-                errorMessage = "Birth Date of the month of the current year cannot be grater than the date of the month of the current year";
+              errorMessage =
+                "Birth Year cannot be grater than the current year";
+            } else if (year === currentYear && month > currentMonth) {
+              errorMessage =
+                "Birth Month of the current year cannot be grater than the current month";
+            } else if (
+              year === currentYear &&
+              month === currentMonth &&
+              day > currentDay
+            ) {
+              errorMessage =
+                "Birth Date of the month of the current year cannot be grater than the date of the month of the current year";
             } else {
               const date = new Date(year, month, day);
               if (

@@ -17,7 +17,7 @@ function UserProfileUpdate() {
     newProfilePicture: null,
     isActive: currentUser.is_active || true,
   });
-  
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -77,7 +77,6 @@ function UserProfileUpdate() {
     setUserData({ ...userData, newProfilePicture: file });
     setPreviewUrl(URL.createObjectURL(file));
   };
-  
 
   if (!currentUser || loading) {
     return <div className="text-center py-4">Loading...</div>;
