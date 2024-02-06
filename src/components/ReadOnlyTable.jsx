@@ -137,7 +137,12 @@ export default function ReadOnlyTable() {
         <TableBody>
           {loading ? (
             <TableRow>
-              <TableCell className="flex gap-5 mx-auto" component="th" scope="row">
+              <TableCell
+                colSpan={6}
+                className="flex gap-5 mx-auto"
+                component="th"
+                scope="row"
+              >
                 <Box sx={{ width: 800 }}>
                   <Skeleton />
                   <Skeleton animation="wave" />
@@ -155,7 +160,16 @@ export default function ReadOnlyTable() {
             ).map((user) => (
               <TableRow key={user.email}>
                 <TableCell component="th" scope="row">
-                  {user.profile_picture}
+                  {user.profile_picture_url ? (
+                    <img
+                      src={user.profile_picture_url}
+                      alt={user.username}
+                      style={{ width: "50px", height: "50px" }}
+                      className="rounded mx-auto"
+                    />
+                  ) : (
+                    <span>No Profile Picture</span>
+                  )}
                 </TableCell>
                 <TableCell component="th" scope="row">
                   {user.email}

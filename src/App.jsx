@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import ReadOnlyTable from './components/ReadOnlyTable'
+import Register from './pages/Register'
+import Login from './pages/Login'
 
 function App() {
 
@@ -14,6 +16,8 @@ function App() {
           content = {
             <Routes>
               <Route path="/" element={<ReadOnlyTable />} />
+              <Route path="/signup" element={<Register />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           }
         />
