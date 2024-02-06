@@ -160,9 +160,9 @@ export default function ReadOnlyTable() {
             ).map((user) => (
               <TableRow key={user.email}>
                 <TableCell component="th" scope="row">
-                  {user.profile_picture_url ? (
+                  {user.profile_picture ? (
                     <img
-                      src={user.profile_picture_url}
+                      src={user.profile_picture}
                       alt={user.username}
                       style={{ width: "50px", height: "50px" }}
                       className="rounded mx-auto"

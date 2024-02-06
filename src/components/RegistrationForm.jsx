@@ -61,8 +61,36 @@ function RegistrationForm() {
         }
         break;
       case "dob":
-        if (value && !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-          errorMessage = "Please enter a valid date in the format YYYY-MM-DD";
+        if (value) {
+          const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+          if (!dateRegex.test(value)) {
+            errorMessage = "Please enter a valid date in the format YYYY-MM-DD";
+          } else {
+            const parts = value.split("-");
+            const year = parseInt(parts[0], 10);
+            const currentYear = new Date().getFullYear();
+            const currentMonth = new Date().getMonth();
+            const currentDay = new Date().getDate();
+            const month = parseInt(parts[1], 10) - 1; // Months are zero-based
+            const day = parseInt(parts[2], 10);
+
+            if (year > currentYear) {
+              errorMessage = "Birth Year cannot be grater than the current year";
+            } else if (year === currentYear && month > currentMonth ) {
+                errorMessage = "Birth Month of the current year cannot be grater than the current month";
+            } else if (year === currentYear && month === currentMonth && day > currentDay) {
+                errorMessage = "Birth Date of the month of the current year cannot be grater than the date of the month of the current year";
+            } else {
+              const date = new Date(year, month, day);
+              if (
+                date.getFullYear() !== year ||
+                date.getMonth() !== month ||
+                date.getDate() !== day
+              ) {
+                errorMessage = "Please enter a valid date";
+              }
+            }
+          }
         }
         break;
       case "profilePicture":
@@ -242,8 +270,8 @@ function RegistrationForm() {
                 }}
                 value={dob}
                 onChange={handleInputChange}
-                error={!!errors.profilePicture}
-                helperText={errors.profilePicture}
+                error={!!errors.dob}
+                helperText={errors.dob}
               />
             </Grid>
             <Grid item xs={12}>
